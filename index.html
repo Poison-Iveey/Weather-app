@@ -7,6 +7,25 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <h1>Iveey's Weather App</h1>
+
+  <form id="locationForm">
+    <input type="text" id="locationInput" placeholder="Enter a location" required>
+
+    <select id="unitSelect">
+      <option value="metric">Celsius (°C)</option>
+      <option value="us">Fahrenheit (°F)</option>
+    </select>
+
+    <button type="submit">Get Weather</button>
+  </form>
+
+  <div id="weatherDisplay"></div>
+
+  <div id="loading" style="display: none;">Loading...</div>
+
+
+
     <script src="script.js"></script>
 </body>
 </html>

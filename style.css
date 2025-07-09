@@ -1,0 +1,112 @@
+body.sunny {
+  background-color: #ffe066;
+}
+body.rain {
+  background-color: #a3d2ca;
+}
+body.cloudy {
+  background-color: #d3d3d3;
+}
+body.snow {
+  background-color: #e0f7fa;
+}
+body.default {
+  background-color: #ffffff;
+}
+
+  /* Base reset */
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: background-color 0.5s ease;
+  }
+
+/* ====== FORM STYLES ====== */
+  #locationForm {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
+
+  #locationForm input,
+  #locationForm select,
+  #locationForm button {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    width:100%;
+    max-width:250px;
+  }
+
+  #locationForm button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+
+  #locationForm button:hover {
+    background-color: #0056b3;
+  }
+
+/* ====== WEATHER INFO STYLES ====== */
+  #weatherDisplay {
+    background-color: rgba(255, 255, 255, 0.85);
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 500px;
+    width: 100%;
+  }
+
+  #weatherDisplay h2 {
+    margin-top: 0;
+    font-size: 1.5rem;
+    color: #333;
+  }
+
+  #weatherDisplay p {
+    margin: 0.5rem 0;
+    font-size: 1.1rem;
+  }
+
+  #weatherDisplay img {
+    margin-top: 1rem;
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+
+ /*Adjust on small screens*/
+ @media (max-width:600px){
+    #locationForm {
+        flex-direction: column;
+    }
+    #locationForm input,
+    #locationForm select,
+    #locationForm button{
+        max-width: 100%;
+    }
+    #weatherDisplay{
+        padding:1rem;
+    } 
+ } 
+
+/* ====== LOADING STYLES ====== */
+  #loading {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 1rem;
+    display: none;
+  }
+
