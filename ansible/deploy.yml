@@ -1,0 +1,40 @@
+- name: Deploy Weather App using Docker
+  hosts: web
+  become: true
+
+  vars:
+    app_port: 9090
+
+  tasks:
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+        cache_valid_time: 3600
+
+    - name: Ensure Docker is installed
+      apt:
+        name: docker.io
+        state: present
+
+    - name: Start Docker service
+      service:
+        name: docker
+        state: started
+        enabled: true
+
+    - name: Build weather app Docker image
+      command: docker build -t weather-app -f docker/Dockerfile .
+      args:
+        chdir: "{{ playbook_dir }}/.."
+
+    - name: Stop existing weather app container 
+      command: docker stop weather-app
+      ignore_errors: yes
+
+    - name: Remove existing weather app container
+      command: docker rm weather-app
+      ignore_errors: yes
+
+    - name: Run weather app container
+      command: docker run -d --name weather-app -p  {{app_port}}:80 weather-app
+
